@@ -1,4 +1,4 @@
-% Copyright 2019 Song Liu
+% Copyright 2020 Song Liu
 
 % Get project root location
 projectRoot = fileparts(mfilename('fullpath'));
