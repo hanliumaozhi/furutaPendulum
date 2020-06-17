@@ -27,7 +27,7 @@ classdef Controller < matlab.System & matlab.system.mixin.Propagates & matlab.sy
             % Implement algorithm. Calculate y as a function of input u and
             % discrete states.
             %y = u;
-            y.torque = 0;
+            y.torque = 10;
         end
 
         function resetImpl(obj)
