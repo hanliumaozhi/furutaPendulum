@@ -1,0 +1,21 @@
+import casadi.*
+
+theta = MX.sym('theta', 1);
+dtheta = MX.sym('dtheta', 1);
+ddtheta = MX.sym('ddtheta', 1);
+phi = MX.sym('phi', 1);
+dphi = MX.sym('dphi', 1);
+ddphi = MX.sym('ddphi', 1);
+tau = MX.sym('tau', 1);
+g = MX.sym('g', 1);
+
+f1 = Function('f1', {theta, dtheta, ddtheta, phi, dphi, ddphi, tau, g}, {-ddtheta-(4*(25032500*tau + 9170000*tau*cos(phi)^2 - 25032500*dphi^2*sin(phi) + 9170000*tau*cos(theta)^2 - 9181921*dphi^2*sin(theta) + 4585000*dphi^2*sin(2*phi)*cos(phi) - 9170000*dphi^2*cos(phi)^2*sin(phi) + 17085000*dtheta^2*sin(2*phi)*cos(phi) - 9170000*tau*cos(phi)^2*cos(theta)^2 + 15000286*dphi^2*cos(phi)^2*sin(theta) - 9170000*dphi^2*cos(theta)^2*sin(phi) + 6727112*dphi^2*cos(phi)^4*sin(theta) - 3363556*dphi^2*cos(theta)^2*sin(theta) - 3363556*dphi^2*cos(theta)^3*sin(theta) + 25000000*g*cos(phi)*sin(phi) - 9181921*dphi^2*cos(theta)*sin(theta) + 9170000*dtheta^2*cos(phi)^2*cos(theta)*sin(phi) + 5818365*dphi^2*cos(phi)^2*cos(theta)*sin(theta) + 3363556*dphi^2*cos(phi)^4*cos(theta)*sin(theta) - 25067112*dphi*dtheta*cos(phi)^3*sin(phi) + 9170000*dphi*dtheta*sin(2*theta)*cos(phi) + 10090668*dphi^2*cos(phi)^2*cos(theta)^2*sin(theta) + 6727112*dphi^2*cos(phi)^2*cos(theta)^3*sin(theta) - 6727112*dphi^2*cos(phi)^4*cos(theta)^2*sin(theta) - 3363556*dphi^2*cos(phi)^4*cos(theta)^3*sin(theta) + 9170000*g*cos(phi)*sin(phi)^2*sin(theta) - 68428842*dphi*dtheta*cos(phi)*sin(phi) + 1681778*dphi^2*sin(2*phi)*cos(phi)*sin(phi)*sin(theta) + 6266778*dtheta^2*sin(2*phi)*cos(phi)*sin(phi)*sin(theta) - 25067112*dphi*dtheta*cos(phi)*cos(theta)^2*sin(phi) - 18340000*dphi*dtheta*cos(phi)^3*cos(theta)*sin(theta) + 3363556*dtheta^2*cos(phi)^2*cos(theta)*sin(phi)^2*sin(theta) + 25067112*dphi*dtheta*cos(phi)^3*cos(theta)^2*sin(phi) - 3363556*dphi^2*cos(phi)^2*cos(theta)^2*sin(phi)^2*sin(theta) + 3363556*dphi*dtheta*sin(2*theta)*cos(phi)*sin(phi)*sin(theta) - 6727112*dphi*dtheta*cos(phi)^3*cos(theta)*sin(phi)*sin(theta)^2))/(137744656*cos(phi)^2 + 50134224*cos(phi)^4 - 99113028*cos(theta)^2 + 149247252*cos(phi)^2*cos(theta)^2 - 50134224*cos(phi)^4*cos(theta)^2 + 13454224*cos(phi)^2*sin(phi)^2*sin(theta)^2 + 73360000*cos(phi)^2*sin(phi)*sin(theta) - 270561273)}, {'theta', 'dtheta', 'ddtheta', 'phi', 'dphi', 'ddphi', 'tau', 'g'}, {'f1'});
+f2 = Function('f2', {theta, dtheta, ddtheta, phi, dphi, ddphi, tau, g}, {-ddphi+(2*(12533556*dphi^2*sin(2*phi)*cos(phi)^2 - 92330757*dtheta^2*sin(2*phi) - 50000000*tau*cos(phi) - 135105000*g*sin(phi) - 36680000*dphi^2*cos(phi)^3*sin(theta) - 49556514*dphi*dtheta*sin(2*theta) - 24778257*dphi^2*sin(2*phi) + 46703556*dtheta^2*sin(2*phi)*cos(phi)^2 + 50000000*dphi^2*cos(phi)*sin(phi) + 68340000*g*cos(phi)^2*sin(phi) + 18340000*dphi^2*cos(phi)*sin(theta) + 49556514*dphi^2*cos(phi)*cos(theta)^2*sin(phi) + 25067112*dtheta^2*cos(phi)^3*cos(theta)*sin(phi) - 18340000*dphi^2*cos(phi)^3*cos(theta)*sin(theta) + 6727112*dphi^2*cos(phi)*sin(phi)*sin(theta)^2 + 18340000*dphi^2*cos(phi)*sin(phi)^2*sin(theta) + 136680000*dphi*dtheta*cos(phi)^2*sin(phi) - 25067112*dphi^2*cos(phi)^3*cos(theta)^2*sin(phi) - 18340000*tau*cos(phi)*sin(phi)*sin(theta) - 13454224*dphi^2*cos(phi)^3*sin(phi)*sin(theta)^2 + 25067112*dphi*dtheta*sin(2*theta)*cos(phi)^2 - 49556514*dtheta^2*cos(phi)*cos(theta)*sin(phi) + 18340000*dphi^2*cos(phi)*cos(theta)*sin(theta) + 99113028*dphi*dtheta*cos(phi)^2*cos(theta)*sin(theta) - 50134224*dphi*dtheta*cos(phi)^4*cos(theta)*sin(theta) - 6727112*dphi^2*cos(phi)^3*cos(theta)*sin(phi)*sin(theta)^2 + 50134224*dphi*dtheta*cos(phi)^2*sin(phi)^2*sin(theta) + 6727112*dphi^2*cos(phi)*cos(theta)*sin(phi)*sin(theta)^2))/(137744656*cos(phi)^2 + 50134224*cos(phi)^4 - 99113028*cos(theta)^2 + 149247252*cos(phi)^2*cos(theta)^2 - 50134224*cos(phi)^4*cos(theta)^2 + 13454224*cos(phi)^2*sin(phi)^2*sin(theta)^2 + 73360000*cos(phi)^2*sin(phi)*sin(theta) - 270561273)}, {'theta', 'dtheta', 'ddtheta', 'phi', 'dphi', 'ddphi', 'tau', 'g'}, {'f2'});
+j1 = f1.jacobian();
+j2 = f2.jacobian();
+opts = struct('with_header', true);
+         
+f1.generate('f1.cpp', opts);
+f2.generate('f2.cpp', opts);
+j1.generate('J1.cpp', opts);
+j2.generate('J2.cpp', opts);

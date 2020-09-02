@@ -94,4 +94,6 @@ ssA = [[ 0 0 1 0];
        [A21 A22 A23 A24]];
 ssB = [0; 0; B1; B2];
 
+f_tau = D_mtx*[ddtheta;ddphi]+C_vec+G_vec;
+
 %matlabFunction(vc2,'File', ['com_lv'],'Vars',{theta phi dtheta dphi},'Outputs',{'com2_lv' });
